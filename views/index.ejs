@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div class="btncon">
+        <img src="icons/logotrans.png" alt="">
+        <button id="createpost">Create Post</button>
+    </div>
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="post-form">
+                <div class="posthead">
+                    <h2>Add New Post</h2>
+                    <span class="close-btn">&times;</span>
+                </div>
+                <form id="post-form" class="forcon" action="/posts" method="POST">
+                    <input type="text" name="title" placeholder="Title" required><br>
+                    <textarea name="content" placeholder="Content" required></textarea><br>
+                    <input type="text" name="createdBy" placeholder="Created By" required><br>
+                    <div class="blogkeycon">
+                        <input type="number" id="blogKey" name="blogKey" placeholder="Blog Key*" required><br>
+                        <p>* should be of 6 digits</p>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="displayposts">
+        <% if (posts.length===0) { %>
+            <div class="displaycon">
+                <h2 class="nopost">Embark on your blogging journey today: Share insights, stories, and passions in your unique voice. Start now, inspire tomorrow.</h2>
+                <div class="newpost">
+                    <img
+                        src="data:image/png;base64,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" id="createpost2">
+                    <p class="create">Create Post</p>
+                </div>
+            </div>
+            <% } %>
+                <div class="postcon">
+                    <% posts.forEach((post, index)=> { %>
+                        <div class="post<%= (index % 2 === 0) ? ' even' : ' odd' %>">
+                            <h2>
+                                <%= post.title %>
+                            </h2>
+                            <div class="post-content">
+                                <%= post.content %>
+                            </div>
+                            <p class="read-more">Read More</p>
+                            <div class="deltime">
+                                <div class="leftdel">
+                                    <button class="condel">Delete</button>
+                                    <form id="delete-form" action="/delete/<%= post.blogKey %>" method="POST">
+                                        <input name="blogKey" class="delkey" placeholder="Blog Key">
+                                        <button class="delete-btn" type="submit"
+                                            onclick="return confirmDelete()">✔</button>
+                                    </form>
+                                </div>
+
+                                <div class="righttime">
+                                    <p>Created By: <%= post.createdBy %>
+                                    </p>
+                                    <p><small>Posted on <%= post.createdAt.toLocaleString() %></small></p>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <% if (index===posts.length - 1) { %>
+                            <div class="post">
+                                <h2>More blogs coming</h2>
+                                <p class="morecont">Stay tuned for more exciting content!</p>
+                            </div>
+                            <% } %>
+                                <% }) %>
+                </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

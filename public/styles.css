@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Varela+Round&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #303030;
+}
+
+.btncon {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    background-color: #7a7a7a;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.9);
+    z-index: 999;
+}
+
+.btncon img {
+    margin-left: 2vw;
+    width: 100px;
+}
+
+.btncon button {
+    font-family: "Josefin Sans", sans-serif;
+    margin-right: 4vw;
+    background-color: #f7b501;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btncon button:hover {
+    background-color: #ffcc00;
+    transform: scale(1.05);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: none;
+}
+
+.modal {
+    width: 30vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c2c2c2;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(2, 2, 2, 0.5);
+}
+
+.post-form {
+    font-family: "Varela Round", sans-serif;
+    height: 100%;
+}
+
+.posthead {
+    width: 93%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+}
+
+.forcon {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.nopost {
+    font-family: "Pacifico", cursive;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.create {
+    font-family: "Nunito", sans-serif;
+    font-size: 1.5rem;
+}
+
+#createpost2 {
+    cursor: pointer;
+}
+
+.blogkeycon {
+    width: 100%;
+    text-align: center;
+}
+
+.blogkeycon p {
+    width: 93%;
+    margin: 0px auto;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.post-form input[type="text"],
+.post-form input[type="number"],
+.post-form textarea {
+    font-family: "Varela Round", sans-serif;
+    width: 90%;
+    padding: 8px;
+    background-color: #eeeeee;
+    border: 1px solid #5c5c5c;
+    border-radius: 4px;
+}
+
+.post-form textarea {
+    line-height: 1;
+    height: 10em;
+}
+
+.post-form button {
+    color: white;
+    font-family: "Varela Round", sans-serif;
+    padding: 8px 16px;
+    background-color: #f7b501;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.post-form button:hover {
+    background-color: #ffcc00;
+    transform: scale(1.05);
+}
+
+.displayposts {
+    padding-top: 15vh;
+    background-color: #303030;
+}
+
+.post {
+    width: calc(50% - 20px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: none;
+    padding: 20px;
+    background-color: rgba(238, 238, 238, 0.9);
+    box-shadow: 8px 9px 5px rgba(206, 206, 206, 0.3);
+    color: black;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; 
+}
+
+.post:hover {
+    box-shadow: 4px 6px 11px rgba(206, 206, 206, 0.6); 
+    transform: scale(1.05); 
+}
+
+
+.post.full {
+    width: 100%;
+    height: auto;
+}
+
+.post h2 {
+    font-family: "Domine", serif;
+    margin-bottom: 5px;
+}
+
+.post-content {
+    font-family: "Noto Sans", sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.post-content.full {
+    overflow: auto;
+    -webkit-box-orient: horizontal;
+}
+
+.morecont {
+    font-family: "Noto Sans", sans-serif;
+}
+
+.read-more {
+    font-family: "Ubuntu", sans-serif;
+    margin-top: 5px;
+}
+
+.read-more:hover {
+    cursor: pointer;
+    color: #f7b501;
+}
+
+.deltime {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#delete-form {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.delkey {
+    width: 70px;
+}
+
+.righttime {
+    font-family: "Space Grotesk", sans-serif;
+    text-align: right;
+}
+
+
+.delete-btn,
+.delkey,
+.condel {
+    display: none;
+}
+
+.post.full .condel {
+    display: block;
+}
+
+
+.condel {
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(224, 31, 31);
+    color: white;
+    width: 60px;
+    transition: background-color 0.3s; 
+}
+
+.condel:hover {
+    background-color: #fc1111; 
+}
+
+.delkey {
+    padding-left: 10px; 
+    border: none; 
+    border-radius: 10px; 
+}
+
+
+.delete-btn {
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(224, 31, 31);
+    color: white;
+    width: 30px;
+    transition: background-color 0.3s, transform 0.3s; 
+}
+
+.delete-btn:hover {
+    background-color: #ff0000; 
+    transform: scale(1.1);
+}
+
+.displaycon {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10vh;
+}
+
+.newpost {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.postcon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+
+    * {
+        font-size: 1rem;
+    }
+    .post {
+        width: 100%;
+    }
+
+    .post.even,
+    .post.odd {
+        margin-bottom: 20px;
+    }
+
+    .righttime p , 
+    .righttime small {
+        font-size: 0.7rem !important;
+    }
+
+}
